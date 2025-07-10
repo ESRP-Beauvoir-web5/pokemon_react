@@ -7,6 +7,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import './app.css'
 import List from "./templates/pokemon/List"
+import Single from "./templates/pokemon/ListItem"
 
 function App() {
   return (

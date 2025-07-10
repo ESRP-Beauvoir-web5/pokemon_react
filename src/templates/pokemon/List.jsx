@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import ListItem from './ListItem';
 
 const List = () => {
     // Mettre en place des constantes avec un état de base et une fonction qui modifiera cet état
@@ -33,8 +34,10 @@ const List = () => {
 
     if ( !loaded ) {
         return(
-            <div>
-                <h2>Chargement...</h2>
+            <div className='d-flex justify-content-center align-items-center'>
+                <div class="spinner-border text-warning" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         )
     }
@@ -48,10 +51,14 @@ const List = () => {
     else {
         return (
             <div>
-                <h1>Liste des pokemons</h1>
-                {pokemons.map((pokemon, index) => (
-                    <h2 key={index}>{pokemon.name}</h2>
-                ))}
+                <h1 className='text-center m-5'>Liste des pokemons</h1>
+                <div className='d-flex flex-wrap gap-3 justify-content-center'>
+                    {pokemons.map((pokemon, index) => {
+                        return (
+                                <ListItem pokemon={pokemon} key={index} />
+                        ) 
+                    })}
+                </div>
             </div>
         );
     }
